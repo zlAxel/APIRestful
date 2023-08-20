@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Transaction;
 
-class Buyer extends Model
-{
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Buyer extends User {
     use HasFactory;
+
+    /** 
+     * ? Relación con el modelo Transaction
+     */
+
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
+    }
+
 }
